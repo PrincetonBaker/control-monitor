@@ -348,7 +348,9 @@ MIT License - See [LICENSE](LICENSE) for details
 ## Contact
 
 **Princeton Baker**  
-princeton.baker@example.com (update with real contact)
+📧 baker.princeton1@gmail.com  
+💼 [linkedin.com/in/princetonbaker](https://linkedin.com/in/princetonbaker)  
+🔗 [github.com/PrincetonBaker](https://github.com/PrincetonBaker)
 
 ---
 
@@ -372,7 +374,8 @@ Resumes list "HIPAA compliance," "Vanta," and "SOC 2" but don't prove the candid
 
 **10-minute smoke test**:
 ```bash
-git clone <repo>
+git clone https://github.com/PrincetonBaker/control-monitor.git
+cd control-monitor
 pip install -e .
 ccm scan --output html
 open reports/*.html
