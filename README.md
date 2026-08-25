@@ -89,8 +89,8 @@ graph TD
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ccm.git
-cd ccm
+git clone https://github.com/PrincetonBaker/control-monitor.git
+cd control-monitor
 
 # Install dependencies
 pip install -e .
