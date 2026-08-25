@@ -83,9 +83,3 @@ jobs:
         with:
           name: evidence
           path: evidence.json
-      
-      - name: Check critical/high failures
-        run: |
-          ccm scan --exit-on-fail
-        env:
-          CCM_FAIL_ON_CRITICAL: 'true'

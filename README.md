@@ -112,8 +112,8 @@ graph TB
 
 ### 🤖 CI/CD Integration
 - GitHub Actions workflow included
-- Fails builds on critical/high severity findings (unless excepted)
-- Artifact upload for audit trails
+- Tests are the merge gate; the scan job publishes fixture findings and is expected to show failures
+- Artifact upload for audit trails (reports and evidence JSON)
 - Scheduled weekly scans
 
 ---
@@ -249,7 +249,7 @@ ccm scan --control CCM-002 --output html --output-file report.html
 >
 > 4. **Risk-Based Exceptions** - Not all failures should break CI. Exception system with expiry dates ensures temporary gaps are tracked and automatically re-enforced.
 >
-> 5. **CI/CD Integration** - GitHub Actions fail on critical/high findings. Prevents control drift. Compliance becomes part of the development workflow, not an afterthought."
+> 5. **CI/CD Integration** - GitHub Actions run tests and scans on every commit. Tests gate merges; scans publish findings as artifacts. Compliance visibility becomes part of the development workflow, not an afterthought."
 
 **"How would you scale this to 500+ controls across a multi-cloud environment?"**
 
@@ -419,9 +419,10 @@ The workflow runs on:
 
 ```yaml
 # .github/workflows/ccm-scan.yml
-- name: Run compliance scan
-  run: ccm scan --exit-on-fail
-  # Fails build on critical/high findings
+- name: Run fixture scan
+  run: ccm scan --output html --output-file ccm-report.html
+  continue-on-error: true
+  # Fixture data demonstrates mixed pass/fail; scan is informational
 ```
 
 ### GitLab CI
@@ -530,7 +531,7 @@ This project demonstrates production-ready security engineering:
 - **Framework Mapping** - Real-world SOC 2, ISO 27001, PCI-DSS, HIPAA control mappings
 - **Evidence Collection** - Automated, repeatable, auditor-ready artifacts
 - **Risk Management** - Formal exception process with compensating controls
-- **CI/CD Integration** - Shift-left compliance, fail fast on critical findings
+- **CI/CD Integration** - Shift-left compliance with continuous scan visibility
 - **Extensibility** - Pluggable architecture for easy customization
 
 Built as a hiring artifact to showcase system design, Python engineering, compliance domain expertise, and production operations skills.
