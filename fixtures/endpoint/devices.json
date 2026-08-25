@@ -1,0 +1,68 @@
+{
+  "devices": [
+    {
+      "id": "device-001",
+      "hostname": "LAPTOP-ALICE-MB",
+      "os": "macOS 14.2",
+      "user": "alice@acmesaas.example.com",
+      "last_seen": "2024-08-25T18:30:00Z",
+      "disk_encryption": {
+        "enabled": true,
+        "method": "FileVault2",
+        "status": "verified"
+      },
+      "screen_lock": {
+        "enabled": true,
+        "timeout_minutes": 10
+      }
+    },
+    {
+      "id": "device-002",
+      "hostname": "WORKSTATION-BOB-WIN",
+      "os": "Windows 11 Pro",
+      "user": "bob@acmesaas.example.com",
+      "last_seen": "2024-05-10T14:00:00Z",
+      "disk_encryption": {
+        "enabled": false,
+        "method": null,
+        "status": "not_configured"
+      },
+      "screen_lock": {
+        "enabled": true,
+        "timeout_minutes": 15
+      }
+    },
+    {
+      "id": "device-003",
+      "hostname": "LAPTOP-CAROL-LINUX",
+      "os": "Ubuntu 22.04 LTS",
+      "user": "carol@acmesaas.example.com",
+      "last_seen": "2024-08-25T17:00:00Z",
+      "disk_encryption": {
+        "enabled": true,
+        "method": "LUKS",
+        "status": "verified"
+      },
+      "screen_lock": {
+        "enabled": true,
+        "timeout_minutes": 5
+      }
+    },
+    {
+      "id": "device-004",
+      "hostname": "LAPTOP-DAVID-MB",
+      "os": "macOS 13.5",
+      "user": "david@acmesaas.example.com",
+      "last_seen": "2024-08-24T12:15:00Z",
+      "disk_encryption": {
+        "enabled": true,
+        "method": "FileVault2",
+        "status": "verified"
+      },
+      "screen_lock": {
+        "enabled": false,
+        "timeout_minutes": null
+      }
+    }
+  ]
+}

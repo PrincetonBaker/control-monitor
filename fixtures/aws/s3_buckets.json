@@ -1,0 +1,60 @@
+{
+  "buckets": [
+    {
+      "name": "acme-prod-data",
+      "creation_date": "2023-02-01T12:00:00Z",
+      "region": "us-east-1",
+      "encryption": {
+        "rules": [
+          {
+            "apply_server_side_encryption_by_default": {
+              "sse_algorithm": "AES256"
+            }
+          }
+        ]
+      },
+      "public_access_block": {
+        "block_public_acls": true,
+        "ignore_public_acls": true,
+        "block_public_policy": true,
+        "restrict_public_buckets": true
+      },
+      "acl": "private"
+    },
+    {
+      "name": "acme-dev-scratch",
+      "creation_date": "2023-08-15T14:30:00Z",
+      "region": "us-west-2",
+      "encryption": null,
+      "public_access_block": {
+        "block_public_acls": true,
+        "ignore_public_acls": true,
+        "block_public_policy": true,
+        "restrict_public_buckets": true
+      },
+      "acl": "private"
+    },
+    {
+      "name": "acme-marketing-assets",
+      "creation_date": "2023-05-10T10:00:00Z",
+      "region": "us-east-1",
+      "encryption": {
+        "rules": [
+          {
+            "apply_server_side_encryption_by_default": {
+              "sse_algorithm": "aws:kms",
+              "kms_master_key_id": "arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012"
+            }
+          }
+        ]
+      },
+      "public_access_block": {
+        "block_public_acls": false,
+        "ignore_public_acls": false,
+        "block_public_policy": false,
+        "restrict_public_buckets": false
+      },
+      "acl": "public-read"
+    }
+  ]
+}

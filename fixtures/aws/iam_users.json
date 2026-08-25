@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "user_name": "admin-alice",
+      "arn": "arn:aws:iam::123456789012:user/admin-alice",
+      "create_date": "2023-01-15T10:30:00Z",
+      "password_last_used": "2024-08-20T14:22:00Z",
+      "mfa_devices": [
+        {
+          "serial_number": "arn:aws:iam::123456789012:mfa/admin-alice",
+          "enable_date": "2023-01-15T10:45:00Z"
+        }
+      ],
+      "attached_policies": [
+        "arn:aws:iam::aws:policy/AdministratorAccess"
+      ]
+    },
+    {
+      "user_name": "admin-bob",
+      "arn": "arn:aws:iam::123456789012:user/admin-bob",
+      "create_date": "2023-03-10T09:15:00Z",
+      "password_last_used": "2024-08-24T11:05:00Z",
+      "mfa_devices": [],
+      "attached_policies": [
+        "arn:aws:iam::aws:policy/AdministratorAccess"
+      ]
+    },
+    {
+      "user_name": "developer-carol",
+      "arn": "arn:aws:iam::123456789012:user/developer-carol",
+      "create_date": "2023-06-01T08:00:00Z",
+      "password_last_used": "2024-08-25T09:30:00Z",
+      "mfa_devices": [
+        {
+          "serial_number": "arn:aws:iam::123456789012:mfa/developer-carol",
+          "enable_date": "2023-06-01T08:15:00Z"
+        }
+      ],
+      "attached_policies": [
+        "arn:aws:iam::aws:policy/PowerUserAccess"
+      ]
+    }
+  ]
+}

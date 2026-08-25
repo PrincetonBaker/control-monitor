@@ -1,0 +1,193 @@
+version: "1.0"
+description: "CCM Control Catalog - Demonstrating cross-framework compliance controls"
+
+controls:
+  - id: CCM-AC-001
+    title: "Multi-Factor Authentication Required for Privileged Users"
+    description: "All users with administrative or privileged access must use multi-factor authentication"
+    category: "Access Control"
+    severity: "critical"
+    intent: "Prevent unauthorized access to privileged accounts through credential compromise"
+    test_procedure: "Enumerate IAM users with admin privileges and verify MFA devices are configured"
+    evidence_expected: "List of admin users with MFA status, configuration details"
+    frameworks:
+      - name: "SOC2"
+        controls: ["CC6.1", "CC6.2"]
+        rationale: "Logical access controls require authentication mechanisms to identify users"
+      - name: "ISO27001:2022"
+        controls: ["A.5.15", "A.5.17", "A.5.18"]
+        rationale: "Identity management and authentication requirements"
+      - name: "PCI-DSS v4"
+        controls: ["8.4.2", "8.5.1"]
+        rationale: "MFA required for all access to cardholder data environment"
+      - name: "HIPAA"
+        controls: ["164.312(a)(2)(i)"]
+        rationale: "Unique user identification and emergency access procedures"
+
+  - id: CCM-AC-002
+    title: "Dormant User Account Review"
+    description: "User accounts inactive for 90+ days must be identified and disabled"
+    category: "Access Control"
+    severity: "high"
+    intent: "Reduce attack surface by removing access for inactive accounts"
+    test_procedure: "Query IdP for last login date; flag accounts with no activity in 90 days"
+    evidence_expected: "List of active accounts, last login timestamps, dormant account report"
+    frameworks:
+      - name: "SOC2"
+        controls: ["CC6.1", "CC6.3"]
+        rationale: "User access removed when no longer authorized"
+      - name: "ISO27001:2022"
+        controls: ["A.5.18", "A.8.2"]
+        rationale: "Access rights review and removal"
+
+  - id: CCM-AC-003
+    title: "Privileged Role Assignment Review"
+    description: "Administrative roles must be assigned only to users actively performing admin duties"
+    category: "Access Control"
+    severity: "high"
+    intent: "Minimize standing privilege by ensuring admin roles are actively used"
+    test_procedure: "List IdP admin roles; check if assigned users have used admin privileges in 30 days"
+    evidence_expected: "Admin role inventory, usage timestamps, unused role report"
+    frameworks:
+      - name: "SOC2"
+        controls: ["CC6.2", "CC6.3"]
+        rationale: "Restriction of access rights to authorized personnel"
+      - name: "ISO27001:2022"
+        controls: ["A.5.15", "A.8.2"]
+        rationale: "Privileged access rights"
+
+  - id: CCM-DS-001
+    title: "S3 Bucket Default Encryption Enabled"
+    description: "All S3 buckets must have default encryption enabled"
+    category: "Data Security"
+    severity: "critical"
+    intent: "Protect data at rest from unauthorized disclosure"
+    test_procedure: "List all S3 buckets and verify encryption configuration is present"
+    evidence_expected: "Bucket inventory with encryption status and algorithm"
+    frameworks:
+      - name: "SOC2"
+        controls: ["CC6.1", "CC6.7"]
+        rationale: "Protection of system resources from unauthorized access"
+      - name: "ISO27001:2022"
+        controls: ["A.8.24"]
+        rationale: "Cryptographic controls for data at rest"
+      - name: "PCI-DSS v4"
+        controls: ["3.5.1", "3.6.1"]
+        rationale: "Stored cardholder data must be encrypted"
+      - name: "HIPAA"
+        controls: ["164.312(a)(2)(iv)", "164.312(e)(2)(ii)"]
+        rationale: "Encryption of ePHI at rest"
+
+  - id: CCM-DS-002
+    title: "S3 Bucket Public Access Blocked"
+    description: "S3 buckets must not allow public read or write access"
+    category: "Data Security"
+    severity: "critical"
+    intent: "Prevent data leakage through misconfigured public access"
+    test_procedure: "Check bucket ACLs and policies for public permissions; verify Block Public Access settings"
+    evidence_expected: "Bucket public access status, ACL configuration"
+    frameworks:
+      - name: "SOC2"
+        controls: ["CC6.1", "CC6.6"]
+        rationale: "Logical access controls prevent unauthorized access"
+      - name: "ISO27001:2022"
+        controls: ["A.5.15"]
+        rationale: "Access control to networks and services"
+      - name: "HIPAA"
+        controls: ["164.312(a)(1)"]
+        rationale: "Access control to ePHI"
+
+  - id: CCM-DS-003
+    title: "Endpoint Disk Encryption Enabled"
+    description: "All laptops and workstations must have full disk encryption enabled"
+    category: "Data Security"
+    severity: "critical"
+    intent: "Protect data on lost or stolen devices"
+    test_procedure: "Query endpoint management for encryption status of all registered devices"
+    evidence_expected: "Device inventory with encryption status, encryption method"
+    frameworks:
+      - name: "SOC2"
+        controls: ["CC6.1", "CC6.7"]
+        rationale: "Protection of data at rest on end-user devices"
+      - name: "ISO27001:2022"
+        controls: ["A.8.24"]
+        rationale: "Use of cryptography"
+      - name: "PCI-DSS v4"
+        controls: ["3.4.1"]
+        rationale: "Disk-level encryption on portable devices"
+      - name: "HIPAA"
+        controls: ["164.312(a)(2)(iv)"]
+        rationale: "Encryption of ePHI on mobile devices"
+
+  - id: CCM-LOG-001
+    title: "CloudTrail Logging Enabled"
+    description: "AWS CloudTrail must be enabled in all regions to log API activity"
+    category: "Logging & Monitoring"
+    severity: "high"
+    intent: "Establish audit trail for forensic investigation and anomaly detection"
+    test_procedure: "Verify CloudTrail trail exists, is multi-region, and is actively logging"
+    evidence_expected: "CloudTrail configuration, trail status, recent event count"
+    frameworks:
+      - name: "SOC2"
+        controls: ["CC7.2", "CC7.3"]
+        rationale: "System monitoring to detect security events"
+      - name: "ISO27001:2022"
+        controls: ["A.8.15", "A.8.16"]
+        rationale: "Logging and monitoring"
+      - name: "PCI-DSS v4"
+        controls: ["10.2.1", "10.3.1"]
+        rationale: "Audit trails for all access to system components"
+      - name: "HIPAA"
+        controls: ["164.312(b)"]
+        rationale: "Audit controls to record and examine ePHI access"
+
+  - id: CCM-CM-001
+    title: "GitHub Branch Protection Enabled"
+    description: "Default branches in production repositories must have branch protection rules"
+    category: "Change Management"
+    severity: "high"
+    intent: "Prevent unauthorized or unreviewed changes to production code"
+    test_procedure: "Query GitHub API for branch protection status on default branches"
+    evidence_expected: "Repository list, branch protection configuration, required reviewers"
+    frameworks:
+      - name: "SOC2"
+        controls: ["CC8.1"]
+        rationale: "Change management controls to authorize and test changes"
+      - name: "ISO27001:2022"
+        controls: ["A.8.32"]
+        rationale: "Change management procedures"
+
+  - id: CCM-CM-002
+    title: "GitHub Organization 2FA Enforcement"
+    description: "GitHub organization must require 2FA for all members"
+    category: "Change Management"
+    severity: "critical"
+    intent: "Protect source code from compromised developer accounts"
+    test_procedure: "Check organization 2FA policy and member compliance"
+    evidence_expected: "Organization 2FA policy status, member compliance report"
+    frameworks:
+      - name: "SOC2"
+        controls: ["CC6.1", "CC8.1"]
+        rationale: "Authentication required for system access and changes"
+      - name: "ISO27001:2022"
+        controls: ["A.5.17"]
+        rationale: "Authentication information"
+
+  - id: CCM-EP-001
+    title: "Endpoint Screen Lock Configured"
+    description: "All endpoints must have automatic screen lock after 15 minutes of inactivity"
+    category: "Endpoint Security"
+    severity: "medium"
+    intent: "Prevent unauthorized physical access to unlocked workstations"
+    test_procedure: "Query endpoint management for screen lock timeout configuration"
+    evidence_expected: "Device screen lock policy, compliance status per device"
+    frameworks:
+      - name: "SOC2"
+        controls: ["CC6.1"]
+        rationale: "Physical and logical access controls"
+      - name: "ISO27001:2022"
+        controls: ["A.5.18"]
+        rationale: "Access rights and clear screen policy"
+      - name: "PCI-DSS v4"
+        controls: ["8.2.8"]
+        rationale: "Screen lock after 15 minutes inactivity"

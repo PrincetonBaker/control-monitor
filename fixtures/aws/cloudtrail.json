@@ -1,0 +1,21 @@
+{
+  "trails": [
+    {
+      "name": "acme-cloudtrail",
+      "s3_bucket_name": "acme-cloudtrail-logs",
+      "is_multi_region_trail": true,
+      "is_organization_trail": false,
+      "is_logging": true,
+      "log_file_validation_enabled": true,
+      "home_region": "us-east-1",
+      "has_custom_event_selectors": false,
+      "event_selectors": [
+        {
+          "read_write_type": "All",
+          "include_management_events": true
+        }
+      ],
+      "latest_event_time": "2024-08-25T18:45:00Z"
+    }
+  ]
+}

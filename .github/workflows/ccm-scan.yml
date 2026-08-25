@@ -1,0 +1,102 @@
+name: CCM Compliance Check
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+jobs:
+  compliance-scan:
+    runs-on: ubuntu-latest
+    name: Run Control Compliance Scan
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+          pip install pytest pytest-cov
+
+      - name: Run tests
+        run: |
+          pytest --cov=ccm --cov-report=term --cov-report=xml
+
+      - name: Run CCM compliance scan
+        id: ccm_scan
+        run: |
+          echo "🔍 Running CCM compliance scan..."
+          ccm scan --output markdown || echo "SCAN_FAILED=true" >> $GITHUB_ENV
+        continue-on-error: true
+
+      - name: Upload scan report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ccm-scan-report
+          path: reports/
+          retention-days: 30
+
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ccm-evidence
+          path: evidence/
+          retention-days: 90
+
+      - name: Check compliance status
+        if: env.SCAN_FAILED == 'true'
+        run: |
+          echo "❌ Compliance scan detected control failures"
+          echo "Review the scan report artifact for details"
+          exit 1
+
+      - name: Success
+        if: env.SCAN_FAILED != 'true'
+        run: |
+          echo "✅ All controls passed or have valid exceptions"
+
+  framework-scans:
+    runs-on: ubuntu-latest
+    name: Framework-Specific Scans
+    strategy:
+      matrix:
+        framework: [SOC2, ISO27001:2022, PCI-DSS v4, HIPAA]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+
+      - name: Scan ${{ matrix.framework }}
+        run: |
+          echo "🔍 Scanning ${{ matrix.framework }} controls..."
+          ccm scan --framework "${{ matrix.framework }}" --output markdown
+        continue-on-error: true
+
+      - name: Upload framework report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ccm-${{ matrix.framework }}-report
+          path: reports/
+          retention-days: 30

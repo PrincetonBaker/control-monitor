@@ -1,0 +1,628 @@
+[
+  {
+    "control_id": "CCM-AC-001",
+    "timestamp": "2026-08-25T19:24:38.490218",
+    "status": "fail",
+    "collector": "okta_admin_mfa",
+    "message": "1 admin user(s) without MFA",
+    "details": {
+      "admin_users": [
+        "alice@acmesaas.example.com",
+        "david@acmesaas.example.com"
+      ],
+      "admins_without_mfa": [
+        {
+          "email": "david@acmesaas.example.com",
+          "roles": [
+            "ORG_ADMIN"
+          ]
+        }
+      ],
+      "total_admins": 2
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-AC-001",
+    "timestamp": "2026-08-25T19:25:17.994749",
+    "status": "fail",
+    "collector": "okta_admin_mfa",
+    "message": "1 admin user(s) without MFA",
+    "details": {
+      "admin_users": [
+        "alice@acmesaas.example.com",
+        "david@acmesaas.example.com"
+      ],
+      "admins_without_mfa": [
+        {
+          "email": "david@acmesaas.example.com",
+          "roles": [
+            "ORG_ADMIN"
+          ]
+        }
+      ],
+      "total_admins": 2
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-AC-001",
+    "timestamp": "2026-08-25T19:25:29.613868",
+    "status": "fail",
+    "collector": "okta_admin_mfa",
+    "message": "1 admin user(s) without MFA",
+    "details": {
+      "admin_users": [
+        "alice@acmesaas.example.com",
+        "david@acmesaas.example.com"
+      ],
+      "admins_without_mfa": [
+        {
+          "email": "david@acmesaas.example.com",
+          "roles": [
+            "ORG_ADMIN"
+          ]
+        }
+      ],
+      "total_admins": 2
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-AC-002",
+    "timestamp": "2026-08-25T19:24:38.491055",
+    "status": "error",
+    "collector": "okta_dormant_users",
+    "message": "Failed to check dormant users",
+    "details": {},
+    "error": "can't compare offset-naive and offset-aware datetimes"
+  },
+  {
+    "control_id": "CCM-AC-002",
+    "timestamp": "2026-08-25T19:25:17.996312",
+    "status": "fail",
+    "collector": "okta_dormant_users",
+    "message": "4 user(s) inactive for 90+ days",
+    "details": {
+      "dormant_users": [
+        {
+          "email": "alice@acmesaas.example.com",
+          "last_login": "2024-08-25T09:15:00.000Z",
+          "days_dormant": 730
+        },
+        {
+          "email": "bob@acmesaas.example.com",
+          "last_login": "2024-05-10T16:45:00.000Z",
+          "days_dormant": 837
+        },
+        {
+          "email": "carol@acmesaas.example.com",
+          "last_login": "2024-08-24T13:20:00.000Z",
+          "days_dormant": 731
+        },
+        {
+          "email": "david@acmesaas.example.com",
+          "last_login": "never",
+          "days_since_created": 1273
+        }
+      ],
+      "active_users": [],
+      "total_active_status": 4
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-AC-002",
+    "timestamp": "2026-08-25T19:25:29.614919",
+    "status": "fail",
+    "collector": "okta_dormant_users",
+    "message": "4 user(s) inactive for 90+ days",
+    "details": {
+      "dormant_users": [
+        {
+          "email": "alice@acmesaas.example.com",
+          "last_login": "2024-08-25T09:15:00.000Z",
+          "days_dormant": 730
+        },
+        {
+          "email": "bob@acmesaas.example.com",
+          "last_login": "2024-05-10T16:45:00.000Z",
+          "days_dormant": 837
+        },
+        {
+          "email": "carol@acmesaas.example.com",
+          "last_login": "2024-08-24T13:20:00.000Z",
+          "days_dormant": 731
+        },
+        {
+          "email": "david@acmesaas.example.com",
+          "last_login": "never",
+          "days_since_created": 1273
+        }
+      ],
+      "active_users": [],
+      "total_active_status": 4
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-AC-003",
+    "timestamp": "2026-08-25T19:24:38.491243",
+    "status": "error",
+    "collector": "okta_unused_admin_roles",
+    "message": "Failed to check unused admin roles",
+    "details": {},
+    "error": "can't compare offset-naive and offset-aware datetimes"
+  },
+  {
+    "control_id": "CCM-AC-003",
+    "timestamp": "2026-08-25T19:25:17.997185",
+    "status": "fail",
+    "collector": "okta_unused_admin_roles",
+    "message": "2 admin role(s) unused for 30+ days",
+    "details": {
+      "unused_role_assignments": [
+        {
+          "email": "alice@acmesaas.example.com",
+          "roles": [
+            "SUPER_ADMIN"
+          ],
+          "last_login": "2024-08-25T09:15:00.000Z",
+          "days_since_login": 730
+        },
+        {
+          "email": "david@acmesaas.example.com",
+          "roles": [
+            "ORG_ADMIN"
+          ],
+          "last_login": "never"
+        }
+      ],
+      "active_admins": [],
+      "total_admin_assignments": 2
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-AC-003",
+    "timestamp": "2026-08-25T19:25:29.615191",
+    "status": "fail",
+    "collector": "okta_unused_admin_roles",
+    "message": "2 admin role(s) unused for 30+ days",
+    "details": {
+      "unused_role_assignments": [
+        {
+          "email": "alice@acmesaas.example.com",
+          "roles": [
+            "SUPER_ADMIN"
+          ],
+          "last_login": "2024-08-25T09:15:00.000Z",
+          "days_since_login": 730
+        },
+        {
+          "email": "david@acmesaas.example.com",
+          "roles": [
+            "ORG_ADMIN"
+          ],
+          "last_login": "never"
+        }
+      ],
+      "active_admins": [],
+      "total_admin_assignments": 2
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-CM-001",
+    "timestamp": "2026-08-25T19:24:38.491360",
+    "status": "fail",
+    "collector": "github_branch_protection",
+    "message": "1 repository/ies without branch protection",
+    "details": {
+      "unprotected_repos": [
+        {
+          "name": "acmesaas/frontend",
+          "branch": "main"
+        }
+      ],
+      "protected_repos": [
+        "acmesaas/api",
+        "acmesaas/infrastructure"
+      ],
+      "total_repos": 3
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-CM-001",
+    "timestamp": "2026-08-25T19:25:17.997716",
+    "status": "fail",
+    "collector": "github_branch_protection",
+    "message": "1 repository/ies without branch protection",
+    "details": {
+      "unprotected_repos": [
+        {
+          "name": "acmesaas/frontend",
+          "branch": "main"
+        }
+      ],
+      "protected_repos": [
+        "acmesaas/api",
+        "acmesaas/infrastructure"
+      ],
+      "total_repos": 3
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-CM-001",
+    "timestamp": "2026-08-25T19:25:29.615354",
+    "status": "fail",
+    "collector": "github_branch_protection",
+    "message": "1 repository/ies without branch protection",
+    "details": {
+      "unprotected_repos": [
+        {
+          "name": "acmesaas/frontend",
+          "branch": "main"
+        }
+      ],
+      "protected_repos": [
+        "acmesaas/api",
+        "acmesaas/infrastructure"
+      ],
+      "total_repos": 3
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-CM-002",
+    "timestamp": "2026-08-25T19:24:38.491463",
+    "status": "pass",
+    "collector": "github_org_2fa",
+    "message": "Organization 'acmesaas' requires 2FA for all members",
+    "details": {
+      "organization": "acmesaas",
+      "two_factor_required": true
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-CM-002",
+    "timestamp": "2026-08-25T19:25:17.997959",
+    "status": "pass",
+    "collector": "github_org_2fa",
+    "message": "Organization 'acmesaas' requires 2FA for all members",
+    "details": {
+      "organization": "acmesaas",
+      "two_factor_required": true
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-CM-002",
+    "timestamp": "2026-08-25T19:25:29.615470",
+    "status": "pass",
+    "collector": "github_org_2fa",
+    "message": "Organization 'acmesaas' requires 2FA for all members",
+    "details": {
+      "organization": "acmesaas",
+      "two_factor_required": true
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-DS-001",
+    "timestamp": "2026-08-25T19:24:38.490469",
+    "status": "fail",
+    "collector": "aws_s3_encryption",
+    "message": "1 bucket(s) without default encryption",
+    "details": {
+      "unencrypted_buckets": [
+        "acme-dev-scratch"
+      ],
+      "encrypted_buckets": [
+        "acme-prod-data",
+        "acme-marketing-assets"
+      ],
+      "total_buckets": 3
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-DS-001",
+    "timestamp": "2026-08-25T19:25:17.995132",
+    "status": "fail",
+    "collector": "aws_s3_encryption",
+    "message": "1 bucket(s) without default encryption",
+    "details": {
+      "unencrypted_buckets": [
+        "acme-dev-scratch"
+      ],
+      "encrypted_buckets": [
+        "acme-prod-data",
+        "acme-marketing-assets"
+      ],
+      "total_buckets": 3
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-DS-001",
+    "timestamp": "2026-08-25T19:25:29.614101",
+    "status": "accepted",
+    "collector": "aws_s3_encryption",
+    "message": "1 bucket(s) without default encryption (Exception 759bacbd: S3 encryption migration in progress, completing Q4 2026)",
+    "details": {
+      "unencrypted_buckets": [
+        "acme-dev-scratch"
+      ],
+      "encrypted_buckets": [
+        "acme-prod-data",
+        "acme-marketing-assets"
+      ],
+      "total_buckets": 3,
+      "exception_id": "759bacbd",
+      "compensating_control": "Manual quarterly bucket audit, encryption required for new buckets"
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-DS-002",
+    "timestamp": "2026-08-25T19:24:38.490593",
+    "status": "fail",
+    "collector": "aws_s3_public_access",
+    "message": "1 bucket(s) have public access enabled",
+    "details": {
+      "public_buckets": [
+        {
+          "name": "acme-marketing-assets",
+          "acl": "public-read"
+        }
+      ],
+      "protected_buckets": [
+        "acme-prod-data",
+        "acme-dev-scratch"
+      ],
+      "total_buckets": 3
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-DS-002",
+    "timestamp": "2026-08-25T19:25:17.995346",
+    "status": "fail",
+    "collector": "aws_s3_public_access",
+    "message": "1 bucket(s) have public access enabled",
+    "details": {
+      "public_buckets": [
+        {
+          "name": "acme-marketing-assets",
+          "acl": "public-read"
+        }
+      ],
+      "protected_buckets": [
+        "acme-prod-data",
+        "acme-dev-scratch"
+      ],
+      "total_buckets": 3
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-DS-002",
+    "timestamp": "2026-08-25T19:25:29.614296",
+    "status": "fail",
+    "collector": "aws_s3_public_access",
+    "message": "1 bucket(s) have public access enabled",
+    "details": {
+      "public_buckets": [
+        {
+          "name": "acme-marketing-assets",
+          "acl": "public-read"
+        }
+      ],
+      "protected_buckets": [
+        "acme-prod-data",
+        "acme-dev-scratch"
+      ],
+      "total_buckets": 3
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-DS-003",
+    "timestamp": "2026-08-25T19:24:38.491561",
+    "status": "fail",
+    "collector": "endpoint_disk_encryption",
+    "message": "1 device(s) without disk encryption",
+    "details": {
+      "unencrypted_devices": [
+        {
+          "hostname": "WORKSTATION-BOB-WIN",
+          "user": "bob@acmesaas.example.com",
+          "status": "not_configured"
+        }
+      ],
+      "encrypted_devices": [
+        "LAPTOP-ALICE-MB",
+        "LAPTOP-CAROL-LINUX",
+        "LAPTOP-DAVID-MB"
+      ],
+      "total_devices": 4
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-DS-003",
+    "timestamp": "2026-08-25T19:25:17.998171",
+    "status": "fail",
+    "collector": "endpoint_disk_encryption",
+    "message": "1 device(s) without disk encryption",
+    "details": {
+      "unencrypted_devices": [
+        {
+          "hostname": "WORKSTATION-BOB-WIN",
+          "user": "bob@acmesaas.example.com",
+          "status": "not_configured"
+        }
+      ],
+      "encrypted_devices": [
+        "LAPTOP-ALICE-MB",
+        "LAPTOP-CAROL-LINUX",
+        "LAPTOP-DAVID-MB"
+      ],
+      "total_devices": 4
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-DS-003",
+    "timestamp": "2026-08-25T19:25:29.615594",
+    "status": "fail",
+    "collector": "endpoint_disk_encryption",
+    "message": "1 device(s) without disk encryption",
+    "details": {
+      "unencrypted_devices": [
+        {
+          "hostname": "WORKSTATION-BOB-WIN",
+          "user": "bob@acmesaas.example.com",
+          "status": "not_configured"
+        }
+      ],
+      "encrypted_devices": [
+        "LAPTOP-ALICE-MB",
+        "LAPTOP-CAROL-LINUX",
+        "LAPTOP-DAVID-MB"
+      ],
+      "total_devices": 4
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-EP-001",
+    "timestamp": "2026-08-25T19:24:38.491663",
+    "status": "fail",
+    "collector": "endpoint_screen_lock",
+    "message": "1 device(s) with non-compliant screen lock",
+    "details": {
+      "non_compliant_devices": [
+        {
+          "hostname": "LAPTOP-DAVID-MB",
+          "user": "david@acmesaas.example.com",
+          "issue": "screen_lock_disabled"
+        }
+      ],
+      "compliant_devices": [
+        "LAPTOP-ALICE-MB",
+        "WORKSTATION-BOB-WIN",
+        "LAPTOP-CAROL-LINUX"
+      ],
+      "total_devices": 4,
+      "max_timeout_minutes": 15
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-EP-001",
+    "timestamp": "2026-08-25T19:25:17.998383",
+    "status": "fail",
+    "collector": "endpoint_screen_lock",
+    "message": "1 device(s) with non-compliant screen lock",
+    "details": {
+      "non_compliant_devices": [
+        {
+          "hostname": "LAPTOP-DAVID-MB",
+          "user": "david@acmesaas.example.com",
+          "issue": "screen_lock_disabled"
+        }
+      ],
+      "compliant_devices": [
+        "LAPTOP-ALICE-MB",
+        "WORKSTATION-BOB-WIN",
+        "LAPTOP-CAROL-LINUX"
+      ],
+      "total_devices": 4,
+      "max_timeout_minutes": 15
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-EP-001",
+    "timestamp": "2026-08-25T19:25:29.615705",
+    "status": "fail",
+    "collector": "endpoint_screen_lock",
+    "message": "1 device(s) with non-compliant screen lock",
+    "details": {
+      "non_compliant_devices": [
+        {
+          "hostname": "LAPTOP-DAVID-MB",
+          "user": "david@acmesaas.example.com",
+          "issue": "screen_lock_disabled"
+        }
+      ],
+      "compliant_devices": [
+        "LAPTOP-ALICE-MB",
+        "WORKSTATION-BOB-WIN",
+        "LAPTOP-CAROL-LINUX"
+      ],
+      "total_devices": 4,
+      "max_timeout_minutes": 15
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-LOG-001",
+    "timestamp": "2026-08-25T19:24:38.490716",
+    "status": "pass",
+    "collector": "aws_cloudtrail",
+    "message": "1 active multi-region CloudTrail trail(s) configured",
+    "details": {
+      "active_trails": [
+        {
+          "name": "acme-cloudtrail",
+          "multi_region": true,
+          "log_validation": true
+        }
+      ],
+      "trail_count": 1
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-LOG-001",
+    "timestamp": "2026-08-25T19:25:17.995525",
+    "status": "pass",
+    "collector": "aws_cloudtrail",
+    "message": "1 active multi-region CloudTrail trail(s) configured",
+    "details": {
+      "active_trails": [
+        {
+          "name": "acme-cloudtrail",
+          "multi_region": true,
+          "log_validation": true
+        }
+      ],
+      "trail_count": 1
+    },
+    "error": null
+  },
+  {
+    "control_id": "CCM-LOG-001",
+    "timestamp": "2026-08-25T19:25:29.614421",
+    "status": "pass",
+    "collector": "aws_cloudtrail",
+    "message": "1 active multi-region CloudTrail trail(s) configured",
+    "details": {
+      "active_trails": [
+        {
+          "name": "acme-cloudtrail",
+          "multi_region": true,
+          "log_validation": true
+        }
+      ],
+      "trail_count": 1
+    },
+    "error": null
+  }
+]

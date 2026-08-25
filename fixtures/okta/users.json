@@ -1,0 +1,96 @@
+{
+  "users": [
+    {
+      "id": "00u1a2b3c4d5e6f7g8h9",
+      "status": "ACTIVE",
+      "created": "2023-01-10T08:00:00.000Z",
+      "activated": "2023-01-10T08:15:00.000Z",
+      "statusChanged": "2024-08-15T10:30:00.000Z",
+      "lastLogin": "2024-08-25T09:15:00.000Z",
+      "lastUpdated": "2024-08-15T10:30:00.000Z",
+      "profile": {
+        "firstName": "Alice",
+        "lastName": "Admin",
+        "email": "alice@acmesaas.example.com",
+        "login": "alice@acmesaas.example.com"
+      },
+      "roles": ["SUPER_ADMIN"],
+      "factors": [
+        {
+          "id": "mfa123456",
+          "factorType": "token:software:totp",
+          "provider": "OKTA",
+          "status": "ACTIVE",
+          "created": "2023-01-10T08:30:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "00u9h8g7f6e5d4c3b2a1",
+      "status": "ACTIVE",
+      "created": "2023-02-20T09:00:00.000Z",
+      "activated": "2023-02-20T09:10:00.000Z",
+      "statusChanged": "2024-08-01T14:00:00.000Z",
+      "lastLogin": "2024-05-10T16:45:00.000Z",
+      "lastUpdated": "2024-08-01T14:00:00.000Z",
+      "profile": {
+        "firstName": "Bob",
+        "lastName": "Dormant",
+        "email": "bob@acmesaas.example.com",
+        "login": "bob@acmesaas.example.com"
+      },
+      "roles": ["USER"],
+      "factors": [
+        {
+          "id": "mfa789012",
+          "factorType": "token:software:totp",
+          "provider": "OKTA",
+          "status": "ACTIVE",
+          "created": "2023-02-20T09:15:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "00uabcdefghijk12345",
+      "status": "ACTIVE",
+      "created": "2023-04-15T10:00:00.000Z",
+      "activated": "2023-04-15T10:05:00.000Z",
+      "statusChanged": "2024-08-24T13:20:00.000Z",
+      "lastLogin": "2024-08-24T13:20:00.000Z",
+      "lastUpdated": "2024-08-24T13:20:00.000Z",
+      "profile": {
+        "firstName": "Carol",
+        "lastName": "Dev",
+        "email": "carol@acmesaas.example.com",
+        "login": "carol@acmesaas.example.com"
+      },
+      "roles": ["USER"],
+      "factors": [
+        {
+          "id": "mfa345678",
+          "factorType": "sms",
+          "provider": "OKTA",
+          "status": "ACTIVE",
+          "created": "2023-04-15T10:10:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "00u56789abcdefghijk",
+      "status": "ACTIVE",
+      "created": "2023-03-01T11:00:00.000Z",
+      "activated": "2023-03-01T11:05:00.000Z",
+      "statusChanged": "2023-03-05T09:00:00.000Z",
+      "lastLogin": null,
+      "lastUpdated": "2023-03-05T09:00:00.000Z",
+      "profile": {
+        "firstName": "David",
+        "lastName": "Unused",
+        "email": "david@acmesaas.example.com",
+        "login": "david@acmesaas.example.com"
+      },
+      "roles": ["ORG_ADMIN"],
+      "factors": []
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "id": "759bacbd",
+    "control_id": "CCM-DS-001",
+    "reason": "S3 encryption migration in progress, completing Q4 2026",
+    "compensating_control": "Manual quarterly bucket audit, encryption required for new buckets",
+    "expiry_date": "2026-12-31T00:00:00",
+    "approver": "Jane Doe, CISO",
+    "created_date": "2026-08-25T19:25:24.889862",
+    "is_active": true
+  }
+]
