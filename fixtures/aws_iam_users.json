@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "username": "admin-alice",
+      "user_id": "AIDAI234567890EXAMPLE",
+      "is_admin": true,
+      "mfa_enabled": true,
+      "policies": ["AdministratorAccess"]
+    },
+    {
+      "username": "admin-bob",
+      "user_id": "AIDAI234567890EXAMPL2",
+      "is_admin": true,
+      "mfa_enabled": false,
+      "policies": ["AdministratorAccess"]
+    },
+    {
+      "username": "developer-carol",
+      "user_id": "AIDAI234567890EXAMPL3",
+      "is_admin": false,
+      "mfa_enabled": true,
+      "policies": ["PowerUserAccess"]
+    }
+  ]
+}

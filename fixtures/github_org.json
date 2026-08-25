@@ -1,0 +1,9 @@
+{
+  "organization": {
+    "login": "example-org",
+    "name": "Example Organization",
+    "two_factor_requirement_enabled": true,
+    "members_count": 42,
+    "default_repository_permission": "read"
+  }
+}

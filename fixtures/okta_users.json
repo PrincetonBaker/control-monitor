@@ -1,0 +1,32 @@
+{
+  "users": [
+    {
+      "id": "00u2234567890abcde",
+      "email": "active.user@example.com",
+      "name": "Active User",
+      "status": "ACTIVE",
+      "last_login": "2026-08-20T14:30:00Z"
+    },
+    {
+      "id": "00u2234567890abcdf",
+      "email": "recent.user@example.com",
+      "name": "Recent User",
+      "status": "ACTIVE",
+      "last_login": "2026-07-15T10:00:00Z"
+    },
+    {
+      "id": "00u2234567890abcdg",
+      "email": "dormant.user@example.com",
+      "name": "Dormant User",
+      "status": "ACTIVE",
+      "last_login": "2026-03-01T08:00:00Z"
+    },
+    {
+      "id": "00u2234567890abcdh",
+      "email": "never.logged.in@example.com",
+      "name": "Never Logged In",
+      "status": "PROVISIONED",
+      "last_login": null
+    }
+  ]
+}

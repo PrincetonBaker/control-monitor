@@ -1,0 +1,40 @@
+{
+  "endpoints": [
+    {
+      "hostname": "LAPTOP-ALICE-001",
+      "user": "alice@example.com",
+      "os": "macOS",
+      "os_version": "14.2",
+      "disk_encrypted": true,
+      "encryption_type": "FileVault",
+      "screen_lock_timeout_minutes": 10
+    },
+    {
+      "hostname": "DESKTOP-BOB-002",
+      "user": "bob@example.com",
+      "os": "Windows",
+      "os_version": "11 Pro",
+      "disk_encrypted": true,
+      "encryption_type": "BitLocker",
+      "screen_lock_timeout_minutes": 15
+    },
+    {
+      "hostname": "LAPTOP-CAROL-003",
+      "user": "carol@example.com",
+      "os": "macOS",
+      "os_version": "14.1",
+      "disk_encrypted": false,
+      "encryption_type": null,
+      "screen_lock_timeout_minutes": 5
+    },
+    {
+      "hostname": "DESKTOP-DAVE-004",
+      "user": "dave@example.com",
+      "os": "Windows",
+      "os_version": "11 Home",
+      "disk_encrypted": true,
+      "encryption_type": "BitLocker",
+      "screen_lock_timeout_minutes": 30
+    }
+  ]
+}

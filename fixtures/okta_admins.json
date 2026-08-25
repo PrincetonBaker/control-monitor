@@ -1,0 +1,25 @@
+{
+  "admins": [
+    {
+      "id": "00u1234567890abcde",
+      "email": "admin@example.com",
+      "name": "Alice Admin",
+      "role": "Super Admin",
+      "mfa_enforced": true
+    },
+    {
+      "id": "00u1234567890abcdf",
+      "email": "it-admin@example.com",
+      "name": "Bob ITAdmin",
+      "role": "Organization Admin",
+      "mfa_enforced": true
+    },
+    {
+      "id": "00u1234567890abcdg",
+      "email": "app-admin@example.com",
+      "name": "Carol AppAdmin",
+      "role": "Application Admin",
+      "mfa_enforced": false
+    }
+  ]
+}

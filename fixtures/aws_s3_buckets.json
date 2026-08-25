@@ -1,0 +1,32 @@
+{
+  "buckets": [
+    {
+      "name": "prod-app-data",
+      "encryption_enabled": true,
+      "encryption_type": "AES256",
+      "public_access": false,
+      "region": "us-east-1"
+    },
+    {
+      "name": "staging-assets",
+      "encryption_enabled": true,
+      "encryption_type": "aws:kms",
+      "public_access": false,
+      "region": "us-west-2"
+    },
+    {
+      "name": "legacy-backups",
+      "encryption_enabled": false,
+      "encryption_type": null,
+      "public_access": false,
+      "region": "us-east-1"
+    },
+    {
+      "name": "public-website-assets",
+      "encryption_enabled": true,
+      "encryption_type": "AES256",
+      "public_access": true,
+      "region": "us-east-1"
+    }
+  ]
+}

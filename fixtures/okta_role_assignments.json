@@ -1,0 +1,28 @@
+{
+  "role_assignments": [
+    {
+      "user_id": "00u3234567890abcde",
+      "user_email": "active.admin@example.com",
+      "role": "Help Desk Admin",
+      "is_admin_role": true,
+      "assigned_date": "2026-01-15T00:00:00Z",
+      "last_used": "2026-08-22T16:00:00Z"
+    },
+    {
+      "user_id": "00u3234567890abcdf",
+      "user_email": "unused.admin@example.com",
+      "role": "Group Admin",
+      "is_admin_role": true,
+      "assigned_date": "2025-11-01T00:00:00Z",
+      "last_used": "2026-04-10T12:00:00Z"
+    },
+    {
+      "user_id": "00u3234567890abcdg",
+      "user_email": "regular.user@example.com",
+      "role": "Everyone",
+      "is_admin_role": false,
+      "assigned_date": "2026-02-01T00:00:00Z",
+      "last_used": "2026-08-24T09:30:00Z"
+    }
+  ]
+}

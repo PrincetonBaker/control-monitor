@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCM Report - 2026-08-25 19:46:05 UTC</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            margin: 0 0 10px 0;
+        }
+        .summary {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 30px;
+        }
+        .summary-card {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .summary-card h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: #666;
+        }
+        .summary-card .value {
+            font-size: 32px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .pass { color: #10b981; }
+        .fail { color: #ef4444; }
+        .error { color: #f59e0b; }
+        .excepted { color: #8b5cf6; }
+        .control {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            border-left: 4px solid #ddd;
+        }
+        .control.pass { border-left-color: #10b981; }
+        .control.fail { border-left-color: #ef4444; }
+        .control.error { border-left-color: #f59e0b; }
+        .control.excepted { border-left-color: #8b5cf6; }
+        .control-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+        .control-title {
+            flex: 1;
+        }
+        .control-title h2 {
+            margin: 0 0 5px 0;
+            font-size: 18px;
+        }
+        .control-id {
+            color: #666;
+            font-size: 14px;
+        }
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        .status-badge.pass { background: #d1fae5; color: #065f46; }
+        .status-badge.fail { background: #fee2e2; color: #991b1b; }
+        .status-badge.error { background: #fef3c7; color: #92400e; }
+        .status-badge.excepted { background: #ede9fe; color: #5b21b6; }
+        .control-meta {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 15px;
+            font-size: 14px;
+        }
+        .control-meta span {
+            background: #f3f4f6;
+            padding: 4px 8px;
+            border-radius: 4px;
+        }
+        .severity-critical { background: #fee2e2; color: #991b1b; font-weight: bold; }
+        .severity-high { background: #fed7aa; color: #9a3412; font-weight: bold; }
+        .severity-medium { background: #fef3c7; color: #92400e; }
+        .severity-low { background: #d1fae5; color: #065f46; }
+        .control-details {
+            margin-top: 15px;
+        }
+        .control-details p {
+            margin: 8px 0;
+        }
+        .frameworks {
+            margin-top: 10px;
+            font-size: 13px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Continuous Control Monitoring Report</h1>
+        <p>Generated: 2026-08-25 19:46:05 UTC</p>
+    </div>
+    
+    <div class="summary">
+        <div class="summary-card">
+            <h3>Total Controls</h3>
+            <p class="value">15</p>
+        </div>
+        <div class="summary-card">
+            <h3>Passed</h3>
+            <p class="value pass">2</p>
+        </div>
+        <div class="summary-card">
+            <h3>Failed</h3>
+            <p class="value fail">9</p>
+        </div>
+        <div class="summary-card">
+            <h3>Errors</h3>
+            <p class="value error">4</p>
+        </div>
+        <div class="summary-card">
+            <h3>Excepted</h3>
+            <p class="value excepted">0</p>
+        </div>
+    </div>
+    
+    <div class="controls">
+        
+        <div class="control fail">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>MFA Required for Privileged Users</h2>
+                    <div class="control-id">CCM-001</div>
+                </div>
+                <span class="status-badge fail">fail</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-critical">Severity: CRITICAL</span>
+                <span>Category: access_control</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Ensure all users with privileged access use multi-factor authentication to prevent unauthorized access</p>
+                <p><strong>Details:</strong> Found 2 admin users, 1 without MFA</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC6.1, CC6.2), ISO27001 (A.9.2.1, A.9.4.2), PCI-DSS (8.3.1, 8.3.2), HIPAA (164.312(a)(2)(i))
+                </div>
+            </div>
+        </div>
+
+        <div class="control fail">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>Data Encryption at Rest</h2>
+                    <div class="control-id">CCM-002</div>
+                </div>
+                <span class="status-badge fail">fail</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-critical">Severity: CRITICAL</span>
+                <span>Category: encryption</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Ensure all data storage uses encryption to protect sensitive information</p>
+                <p><strong>Details:</strong> Found 4 buckets, 1 without encryption</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC6.7), ISO27001 (A.10.1.1, A.8.24), PCI-DSS (3.4, 3.5.1), HIPAA (164.312(a)(2)(iv), 164.312(e)(2)(ii))
+                </div>
+            </div>
+        </div>
+
+        <div class="control fail">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>No Public S3 Buckets</h2>
+                    <div class="control-id">CCM-003</div>
+                </div>
+                <span class="status-badge fail">fail</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-high">Severity: HIGH</span>
+                <span>Category: access_control</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Prevent unauthorized access by ensuring S3 buckets are not publicly accessible</p>
+                <p><strong>Details:</strong> Found 4 buckets, 1 are public</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC6.1, CC6.6), ISO27001 (A.9.1.2, A.13.1.3), PCI-DSS (1.2.1, 1.3.1), HIPAA (164.312(a)(1))
+                </div>
+            </div>
+        </div>
+
+        <div class="control pass">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>CloudTrail Logging Enabled</h2>
+                    <div class="control-id">CCM-004</div>
+                </div>
+                <span class="status-badge pass">pass</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-high">Severity: HIGH</span>
+                <span>Category: logging</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Maintain audit trails of all API activity for security monitoring and compliance</p>
+                <p><strong>Details:</strong> Found 1 trails, 1 are logging</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC7.2, CC7.3), ISO27001 (A.12.4.1, A.12.4.3), PCI-DSS (10.2.2, 10.3.1), HIPAA (164.312(b))
+                </div>
+            </div>
+        </div>
+
+        <div class="control fail">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>Okta Admin MFA Enforcement</h2>
+                    <div class="control-id">CCM-005</div>
+                </div>
+                <span class="status-badge fail">fail</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-critical">Severity: CRITICAL</span>
+                <span>Category: access_control</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Require MFA for all administrative accounts in the identity provider</p>
+                <p><strong>Details:</strong> Found 3 admins, 1 without MFA enforced</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC6.1, CC6.2), ISO27001 (A.9.2.1, A.9.4.2, A.9.4.3), PCI-DSS (8.3.1, 8.3.2), HIPAA (164.312(a)(2)(i))
+                </div>
+            </div>
+        </div>
+
+        <div class="control fail">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>No Dormant User Accounts</h2>
+                    <div class="control-id">CCM-006</div>
+                </div>
+                <span class="status-badge fail">fail</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-medium">Severity: MEDIUM</span>
+                <span>Category: access_control</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Remove or disable user accounts that have been inactive to reduce attack surface</p>
+                <p><strong>Details:</strong> Found 4 users, 2 are dormant (>90 days)</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC6.1, CC6.3), ISO27001 (A.9.2.5, A.9.2.6), PCI-DSS (8.1.4), HIPAA (164.308(a)(3)(ii)(C))
+                </div>
+            </div>
+        </div>
+
+        <div class="control fail">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>Remove Unused Admin Roles</h2>
+                    <div class="control-id">CCM-007</div>
+                </div>
+                <span class="status-badge fail">fail</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-medium">Severity: MEDIUM</span>
+                <span>Category: access_control</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Follow principle of least privilege by removing administrative roles that are not actively used</p>
+                <p><strong>Details:</strong> Found 2 admin role assignments, 1 unused (>60 days)</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC6.3), ISO27001 (A.9.2.5, A.9.1.1), PCI-DSS (7.1.2), HIPAA (164.308(a)(4)(i))
+                </div>
+            </div>
+        </div>
+
+        <div class="control fail">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>GitHub Branch Protection</h2>
+                    <div class="control-id">CCM-008</div>
+                </div>
+                <span class="status-badge fail">fail</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-high">Severity: HIGH</span>
+                <span>Category: change_management</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Prevent unauthorized or unreviewed code changes by requiring pull request reviews</p>
+                <p><strong>Details:</strong> Found 3 repositories, 1 without branch protection</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC8.1), ISO27001 (A.12.1.2, A.14.2.2), PCI-DSS (6.3.2, 6.5.3)
+                </div>
+            </div>
+        </div>
+
+        <div class="control pass">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>GitHub Organization 2FA Required</h2>
+                    <div class="control-id">CCM-009</div>
+                </div>
+                <span class="status-badge pass">pass</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-critical">Severity: CRITICAL</span>
+                <span>Category: access_control</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Enforce two-factor authentication for all members of the GitHub organization</p>
+                <p><strong>Details:</strong> Organization 2FA requirement: enabled</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC6.1, CC6.2), ISO27001 (A.9.4.2), PCI-DSS (8.3.1)
+                </div>
+            </div>
+        </div>
+
+        <div class="control fail">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>Endpoint Disk Encryption</h2>
+                    <div class="control-id">CCM-010</div>
+                </div>
+                <span class="status-badge fail">fail</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-critical">Severity: CRITICAL</span>
+                <span>Category: encryption</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Protect data on endpoint devices through full disk encryption</p>
+                <p><strong>Details:</strong> Found 4 endpoints, 1 without disk encryption</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC6.7), ISO27001 (A.8.24, A.8.3.1), PCI-DSS (3.4.1), HIPAA (164.312(a)(2)(iv))
+                </div>
+            </div>
+        </div>
+
+        <div class="control fail">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>Endpoint Screen Lock</h2>
+                    <div class="control-id">CCM-011</div>
+                </div>
+                <span class="status-badge fail">fail</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-medium">Severity: MEDIUM</span>
+                <span>Category: physical_security</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Prevent unauthorized physical access to systems through automatic screen locking</p>
+                <p><strong>Details:</strong> Found 4 endpoints, 1 with screen lock timeout > 15 minutes</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC6.6), ISO27001 (A.11.2.8, A.11.2.9), PCI-DSS (8.1.8), HIPAA (164.312(a)(2)(iii))
+                </div>
+            </div>
+        </div>
+
+        <div class="control error">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>Regular Access Reviews</h2>
+                    <div class="control-id">CCM-012</div>
+                </div>
+                <span class="status-badge error">error</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-medium">Severity: MEDIUM</span>
+                <span>Category: access_control</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Periodically review user access rights to ensure they remain appropriate</p>
+                <p><strong>Details:</strong> No collector supports control CCM-012</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC6.3), ISO27001 (A.9.2.5), PCI-DSS (7.1.2), HIPAA (164.308(a)(4)(ii)(C))
+                </div>
+            </div>
+        </div>
+
+        <div class="control error">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>Secure Password Policy</h2>
+                    <div class="control-id">CCM-013</div>
+                </div>
+                <span class="status-badge error">error</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-high">Severity: HIGH</span>
+                <span>Category: access_control</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Enforce strong password requirements to prevent credential compromise</p>
+                <p><strong>Details:</strong> No collector supports control CCM-013</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC6.1), ISO27001 (A.9.4.3), PCI-DSS (8.2.3, 8.2.4, 8.2.5), HIPAA (164.308(a)(5)(ii)(D))
+                </div>
+            </div>
+        </div>
+
+        <div class="control error">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>Incident Response Plan Testing</h2>
+                    <div class="control-id">CCM-014</div>
+                </div>
+                <span class="status-badge error">error</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-high">Severity: HIGH</span>
+                <span>Category: incident_management</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Ensure the organization can effectively respond to security incidents</p>
+                <p><strong>Details:</strong> No collector supports control CCM-014</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC7.4, CC7.5), ISO27001 (A.16.1.1, A.16.1.5), PCI-DSS (12.10.1), HIPAA (164.308(a)(6)(ii))
+                </div>
+            </div>
+        </div>
+
+        <div class="control error">
+            <div class="control-header">
+                <div class="control-title">
+                    <h2>Vendor Security Assessments</h2>
+                    <div class="control-id">CCM-015</div>
+                </div>
+                <span class="status-badge error">error</span>
+            </div>
+            <div class="control-meta">
+                <span class="severity-medium">Severity: MEDIUM</span>
+                <span>Category: vendor_management</span>
+            </div>
+            <div class="control-details">
+                <p><strong>Intent:</strong> Ensure third-party vendors meet security requirements before processing sensitive data</p>
+                <p><strong>Details:</strong> No collector supports control CCM-015</p>
+                
+                <div class="frameworks">
+                    <strong>Frameworks:</strong> SOC2 (CC9.1, CC9.2), ISO27001 (A.15.1.1, A.15.1.2), PCI-DSS (12.8.2, 12.8.4), HIPAA (164.308(b)(1), 164.314(a)(1))
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

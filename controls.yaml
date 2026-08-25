@@ -1,0 +1,251 @@
+controls:
+  - id: CCM-001
+    title: MFA Required for Privileged Users
+    intent: Ensure all users with privileged access use multi-factor authentication to prevent unauthorized access
+    test_procedure: Verify that all IAM users with administrative permissions have MFA enabled
+    evidence_expected: List of IAM users with admin privileges showing MFA status
+    severity: critical
+    category: access_control
+    frameworks:
+      - framework: SOC2
+        controls: [CC6.1, CC6.2]
+      - framework: ISO27001
+        controls: [A.9.2.1, A.9.4.2]
+      - framework: PCI-DSS
+        controls: [8.3.1, 8.3.2]
+      - framework: HIPAA
+        controls: [164.312(a)(2)(i)]
+
+  - id: CCM-002
+    title: Data Encryption at Rest
+    intent: Ensure all data storage uses encryption to protect sensitive information
+    test_procedure: Verify S3 buckets have default encryption enabled
+    evidence_expected: List of S3 buckets with encryption configuration
+    severity: critical
+    category: encryption
+    frameworks:
+      - framework: SOC2
+        controls: [CC6.7]
+      - framework: ISO27001
+        controls: [A.10.1.1, A.8.24]
+      - framework: PCI-DSS
+        controls: ["3.4", "3.5.1"]
+      - framework: HIPAA
+        controls: [164.312(a)(2)(iv), 164.312(e)(2)(ii)]
+
+  - id: CCM-003
+    title: No Public S3 Buckets
+    intent: Prevent unauthorized access by ensuring S3 buckets are not publicly accessible
+    test_procedure: Scan all S3 buckets for public access configurations
+    evidence_expected: List of S3 buckets with public access status
+    severity: high
+    category: access_control
+    frameworks:
+      - framework: SOC2
+        controls: [CC6.1, CC6.6]
+      - framework: ISO27001
+        controls: [A.9.1.2, A.13.1.3]
+      - framework: PCI-DSS
+        controls: ["1.2.1", "1.3.1"]
+      - framework: HIPAA
+        controls: [164.312(a)(1)]
+
+  - id: CCM-004
+    title: CloudTrail Logging Enabled
+    intent: Maintain audit trails of all API activity for security monitoring and compliance
+    test_procedure: Verify CloudTrail is enabled and logging to a secure location
+    evidence_expected: CloudTrail configuration showing enabled status and log destination
+    severity: high
+    category: logging
+    frameworks:
+      - framework: SOC2
+        controls: [CC7.2, CC7.3]
+      - framework: ISO27001
+        controls: [A.12.4.1, A.12.4.3]
+      - framework: PCI-DSS
+        controls: ["10.2.2", "10.3.1"]
+      - framework: HIPAA
+        controls: [164.312(b)]
+
+  - id: CCM-005
+    title: Okta Admin MFA Enforcement
+    intent: Require MFA for all administrative accounts in the identity provider
+    test_procedure: Verify Okta admin accounts have MFA policy enforced
+    evidence_expected: List of Okta admins with MFA enforcement status
+    severity: critical
+    category: access_control
+    frameworks:
+      - framework: SOC2
+        controls: [CC6.1, CC6.2]
+      - framework: ISO27001
+        controls: [A.9.2.1, A.9.4.2, A.9.4.3]
+      - framework: PCI-DSS
+        controls: [8.3.1, 8.3.2]
+      - framework: HIPAA
+        controls: [164.312(a)(2)(i)]
+
+  - id: CCM-006
+    title: No Dormant User Accounts
+    intent: Remove or disable user accounts that have been inactive to reduce attack surface
+    test_procedure: Identify user accounts with no login activity in the last 90 days
+    evidence_expected: List of users with last login timestamp
+    severity: medium
+    category: access_control
+    frameworks:
+      - framework: SOC2
+        controls: [CC6.1, CC6.3]
+      - framework: ISO27001
+        controls: [A.9.2.5, A.9.2.6]
+      - framework: PCI-DSS
+        controls: ["8.1.4"]
+      - framework: HIPAA
+        controls: [164.308(a)(3)(ii)(C)]
+
+  - id: CCM-007
+    title: Remove Unused Admin Roles
+    intent: Follow principle of least privilege by removing administrative roles that are not actively used
+    test_procedure: Identify admin roles assigned to users who have not used them in 60 days
+    evidence_expected: List of admin role assignments with usage timestamps
+    severity: medium
+    category: access_control
+    frameworks:
+      - framework: SOC2
+        controls: [CC6.3]
+      - framework: ISO27001
+        controls: [A.9.2.5, A.9.1.1]
+      - framework: PCI-DSS
+        controls: ["7.1.2"]
+      - framework: HIPAA
+        controls: [164.308(a)(4)(i)]
+
+  - id: CCM-008
+    title: GitHub Branch Protection
+    intent: Prevent unauthorized or unreviewed code changes by requiring pull request reviews
+    test_procedure: Verify main/master branches have branch protection rules requiring reviews
+    evidence_expected: Branch protection configuration for critical branches
+    severity: high
+    category: change_management
+    frameworks:
+      - framework: SOC2
+        controls: [CC8.1]
+      - framework: ISO27001
+        controls: [A.12.1.2, A.14.2.2]
+      - framework: PCI-DSS
+        controls: ["6.3.2", "6.5.3"]
+
+  - id: CCM-009
+    title: GitHub Organization 2FA Required
+    intent: Enforce two-factor authentication for all members of the GitHub organization
+    test_procedure: Verify GitHub organization requires 2FA for all members
+    evidence_expected: Organization 2FA requirement status
+    severity: critical
+    category: access_control
+    frameworks:
+      - framework: SOC2
+        controls: [CC6.1, CC6.2]
+      - framework: ISO27001
+        controls: [A.9.4.2]
+      - framework: PCI-DSS
+        controls: [8.3.1]
+
+  - id: CCM-010
+    title: Endpoint Disk Encryption
+    intent: Protect data on endpoint devices through full disk encryption
+    test_procedure: Verify corporate endpoints have disk encryption enabled (FileVault, BitLocker)
+    evidence_expected: List of endpoints with encryption status
+    severity: critical
+    category: encryption
+    frameworks:
+      - framework: SOC2
+        controls: [CC6.7]
+      - framework: ISO27001
+        controls: [A.8.24, A.8.3.1]
+      - framework: PCI-DSS
+        controls: ["3.4.1"]
+      - framework: HIPAA
+        controls: [164.312(a)(2)(iv)]
+
+  - id: CCM-011
+    title: Endpoint Screen Lock
+    intent: Prevent unauthorized physical access to systems through automatic screen locking
+    test_procedure: Verify endpoints have automatic screen lock configured with timeout <= 15 minutes
+    evidence_expected: Screen lock configuration on corporate endpoints
+    severity: medium
+    category: physical_security
+    frameworks:
+      - framework: SOC2
+        controls: [CC6.6]
+      - framework: ISO27001
+        controls: [A.11.2.8, A.11.2.9]
+      - framework: PCI-DSS
+        controls: ["8.1.8"]
+      - framework: HIPAA
+        controls: [164.312(a)(2)(iii)]
+
+  - id: CCM-012
+    title: Regular Access Reviews
+    intent: Periodically review user access rights to ensure they remain appropriate
+    test_procedure: Verify access reviews are conducted quarterly with documented approval
+    evidence_expected: Access review reports with sign-off from managers
+    severity: medium
+    category: access_control
+    frameworks:
+      - framework: SOC2
+        controls: [CC6.3]
+      - framework: ISO27001
+        controls: [A.9.2.5]
+      - framework: PCI-DSS
+        controls: [7.1.2]
+      - framework: HIPAA
+        controls: [164.308(a)(4)(ii)(C)]
+
+  - id: CCM-013
+    title: Secure Password Policy
+    intent: Enforce strong password requirements to prevent credential compromise
+    test_procedure: Verify password policy requires minimum 12 characters, complexity, and rotation
+    evidence_expected: Password policy configuration in identity provider
+    severity: high
+    category: access_control
+    frameworks:
+      - framework: SOC2
+        controls: [CC6.1]
+      - framework: ISO27001
+        controls: [A.9.4.3]
+      - framework: PCI-DSS
+        controls: ["8.2.3", "8.2.4", "8.2.5"]
+      - framework: HIPAA
+        controls: [164.308(a)(5)(ii)(D)]
+
+  - id: CCM-014
+    title: Incident Response Plan Testing
+    intent: Ensure the organization can effectively respond to security incidents
+    test_procedure: Verify incident response plan is documented and tested at least annually
+    evidence_expected: Incident response plan document and test results from the last 12 months
+    severity: high
+    category: incident_management
+    frameworks:
+      - framework: SOC2
+        controls: [CC7.4, CC7.5]
+      - framework: ISO27001
+        controls: [A.16.1.1, A.16.1.5]
+      - framework: PCI-DSS
+        controls: ["12.10.1"]
+      - framework: HIPAA
+        controls: [164.308(a)(6)(ii)]
+
+  - id: CCM-015
+    title: Vendor Security Assessments
+    intent: Ensure third-party vendors meet security requirements before processing sensitive data
+    test_procedure: Verify vendor security assessments are completed before data sharing
+    evidence_expected: Vendor security assessment documents including SOC 2 reports or security questionnaires
+    severity: medium
+    category: vendor_management
+    frameworks:
+      - framework: SOC2
+        controls: [CC9.1, CC9.2]
+      - framework: ISO27001
+        controls: [A.15.1.1, A.15.1.2]
+      - framework: PCI-DSS
+        controls: ["12.8.2", "12.8.4"]
+      - framework: HIPAA
+        controls: [164.308(b)(1), 164.314(a)(1)]

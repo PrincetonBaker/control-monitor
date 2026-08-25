@@ -1,0 +1,12 @@
+{
+  "trails": [
+    {
+      "name": "organization-trail",
+      "is_logging": true,
+      "s3_bucket": "cloudtrail-logs-bucket",
+      "is_multi_region": true,
+      "include_global_events": true,
+      "log_file_validation_enabled": true
+    }
+  ]
+}
